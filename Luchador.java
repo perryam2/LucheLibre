@@ -3,7 +3,7 @@ package LuchaLegend;
 public class Luchador {
 	private String name;
 	private String realName;
-	private String life;
+	private String life;//"Birth month, day, year - Death month, day, year"
 	private String[] ringYears; //[debut year, retire year]
 	private int[] body;//[height in cm, weight in kg]
 	private int[] matchRecord;//[total matches, number of wins, number of losses, number of draws]
