@@ -1,5 +1,6 @@
 package LuchaLegend;
 
+
 import java.util.HashMap;
 import java.util.Set;
 
@@ -16,8 +17,9 @@ public class Question {
 		return this.question;
 	}
 	
-	public Set<String> getAnswers(){
-		return this.answers.keySet();
+	public String[] getAnswers(){
+		Set<String> set =this.answers.keySet();
+		return (String[]) set.toArray();
 	}
 	
 	public void choose(String chosenAnswer) {

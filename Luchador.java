@@ -4,7 +4,7 @@ public class Luchador {
 	private String name;
 	private String realName;
 	private String life;//"Birth month, day, year - Death month, day, year"
-	private String[] ringYears; //[debut year, retire year]
+	private int[] ringYears; //[debut year, retire year]
 	private int[] body;//[height in cm, weight in kg]
 	private int[] matchRecord;//[total matches, number of wins, number of losses, number of draws]
 	private String style; 
@@ -13,7 +13,7 @@ public class Luchador {
 	private String bio;
 	private int count = 0;
 	
-	public Luchador(String name, String realName, String life, String[] ringYears,int[] body, 
+	public Luchador(String name, String realName, String life, int[] ringYears,int[] body, 
 			int[] matchRecord, String style, String[] roles, String[] moves, String bio) {
 		this.name = name;
 		this.realName = realName;
@@ -39,7 +39,7 @@ public class Luchador {
 		return this.life;
 	}
 	
-	public String[] getRingYears() {
+	public int[] getRingYears() {
 		return this.ringYears;
 	}
 	
@@ -47,7 +47,7 @@ public class Luchador {
 		return this.body;
 	}
 	
-	public int[] matchRecord() {
+	public int[] getMatches() {
 		return this.matchRecord;
 	}
 	
