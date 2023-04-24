@@ -45,4 +45,21 @@ public class Questions {
 	HashMap<String, Luchador> a10 = new HashMap<String, Luchador>();
 		//TODO: add answers
 	Question q10 = new Question("What is your favorite color?", a10);
+	
+	public Questions() {
+		questions.add(q1);
+		questions.add(q2);
+		questions.add(q3);
+		questions.add(q4);
+		questions.add(q5);
+		questions.add(q6);
+		questions.add(q7);
+		questions.add(q8);
+		questions.add(q9);
+		questions.add(q10);
+	}
+	
+	public ArrayList<Question> getQuestions(){
+		return questions;
+	}
 }
