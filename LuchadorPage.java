@@ -6,6 +6,7 @@ import javax.swing.JTextArea;
 
 import java.awt.Font;
 import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 
 public class LuchadorPage extends Page {
 	JPanel content;
@@ -45,13 +46,13 @@ public class LuchadorPage extends Page {
 		}else {
 			this.retire.setText("Retired: "+Integer.toString(luchador.getRingYears()[1]));
 		} this.retire.setFont(bodyText);
-		this.height.setText("Height: "+Integer.toString(luchador.getbody()[0]));
-		this.weight.setText("Weight: "+Integer.toString(luchador.getbody()[1]));
+		this.height.setText("Height: "+Integer.toString(luchador.getbody()[0])+"cm");
+		this.weight.setText("Weight: "+Integer.toString(luchador.getbody()[1])+"kg");
 		this.matches.setText("Total Fights: "+Integer.toString(luchador.getMatches()[0]));
 		this.wins.setText("wins: "+Integer.toString(luchador.getMatches()[0]));
 		this.losses.setText("losses: "+Integer.toString(luchador.getMatches()[1]));
 		this.draws.setText("draws: "+Integer.toString(luchador.getMatches()[2]));
-		this.style.setText(luchador.getStyle());
+		this.style.setText("Wrestling Style: "+luchador.getStyle());
 		this.roles.setText(null);
 		this.moves.setText(null);
 		this.bio.setText(luchador.getBio());
@@ -62,7 +63,7 @@ public class LuchadorPage extends Page {
 
 	@Override
 	public void updateContent() {
-		this.content.setLayout(new GridBagLayout());
+		this.content.setLayout(new GridLayout(5,2));
 		this.content.add(name);
 		this.content.add(realName);
 		this.content.add(lifeTime);
@@ -75,7 +76,7 @@ public class LuchadorPage extends Page {
 		this.content.add(losses);
 		this.content.add(draws);
 		this.content.add(style);
-		this.content.add(bio);
+		//this.content.add(bio);
 		
 	}
 

@@ -16,7 +16,6 @@ public abstract class Page {
 	Font bodyItalic = new Font(Font.SANS_SERIF, Font.ITALIC, 11);
 	
 	
-	
 	public Page() {
 		
 	}
@@ -28,7 +27,7 @@ public abstract class Page {
 	public void updatePage() {
 		frame.add(banner, BorderLayout.NORTH);
 		this.updateContent();
-		frame.add(content, BorderLayout.PAGE_START);
+		frame.add(content, BorderLayout.CENTER);
 		frame.repaint();
 	}
 	

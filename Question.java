@@ -13,18 +13,21 @@ public class Question {
 		this.answers = answers;
 	}
 	
-	public String getQuestion(){
+	public String getQuestionText(){
 		return this.question;
 	}
 	
 	public String[] getAnswers(){
 		Set<String> set =this.answers.keySet();
-		return (String[]) set.toArray();
+		String[] arrayOfString = new String[set.size()];
+		int index = 0;
+		for (String str : set)
+			arrayOfString[index++] = str;
+		return arrayOfString;
 	}
 	
 	public void choose(String chosenAnswer) {
-		Luchador luchador = this.answers.get(chosenAnswer);
-		luchador.addToCount();
+		this.answers.get(chosenAnswer).addToCount();
 	}
 	
 }
