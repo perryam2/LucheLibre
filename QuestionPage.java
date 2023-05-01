@@ -3,6 +3,8 @@ package LuchaLegend;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -13,7 +15,7 @@ import LuchaLegend.QuestionList.Node;
 public class QuestionPage extends Page {
 	public JPanel content;
 	public Node current;
-	public Luchador[] luchadores;
+	public final Luchador[] luchadores;
 	public GridBagLayout gridbag = new GridBagLayout();
 	public GridBagConstraints c = new GridBagConstraints();
 	public JLabel questiontext = new JLabel();
@@ -38,13 +40,13 @@ public class QuestionPage extends Page {
 		this.answers = current.getQuestion().getAnswers();
 		this.questiontext.setText(current.getQuestion().getQuestionText());
 		this.ans1.setText(answers[0]);
-		this.ans1.addActionListener(new AnswerListener(ans1, this, luchadores));
+		this.ans1.addActionListener(new AnswerListener(ans1));
 		this.ans2.setText(answers[1]);
-		this.ans2.addActionListener(new AnswerListener(ans2, this, luchadores));
+		this.ans2.addActionListener(new AnswerListener(ans2));
 		this.ans3.setText(answers[2]);
-		this.ans3.addActionListener(new AnswerListener(ans3, this, luchadores));
+		this.ans3.addActionListener(new AnswerListener(ans3));
 		this.ans4.setText(answers[3]);
-		this.ans4.addActionListener(new AnswerListener(ans4, this, luchadores));
+		this.ans4.addActionListener(new AnswerListener(ans4));
 		
 		content.removeAll();
 		c.gridx = 0;
@@ -78,5 +80,28 @@ public class QuestionPage extends Page {
 		content.repaint();
 	}
 	
+	public class AnswerListener implements ActionListener{
+		public JButton button;
+		
+		public AnswerListener(JButton chosenAnsBut) {
+			button = chosenAnsBut;
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			current.getQuestion().choose(button.getText());
+			System.out.println("added to count");
+			if(current.getNext() == null) {
+				getQuestionPage().frame.setVisible(false);
+				//return;
+			}else {
+				current = current.getNext();
+				updateContent();
+			}
+		}
+	}
+	public QuestionPage getQuestionPage() {
+		return this;
+	}
 	
 }

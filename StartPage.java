@@ -1,11 +1,25 @@
 package LuchaLegend;
 
-public class StartPage extends Page{
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class StartPage extends Page{
+	public JPanel content;
+	
+	public StartPage() {
+		this.content = super.content;
+	}
+	
 	@Override
 	public void updateContent() {
-		// TODO Auto-generated method stub
-		
+		content.removeAll();
+		frame.repaint();
 	}
+	
+	
 
 }

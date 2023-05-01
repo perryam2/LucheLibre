@@ -104,7 +104,7 @@ public class PageViewer {
 			a2.put("Use strategy to outsmart your opponent.", luchadores[3]);//elhijo
 			a2.put("Use strategy to outsmart your opponent.", luchadores[5]);//fish
 			a2.put("Embrace the chaos.", luchadores[8]);//fenix
-		Question q2 = new Question("How would you handle presure in the ring?", a2);
+		Question q2 = new Question("How would you handle pressure in the ring?", a2);
 
 		HashMap<String, Luchador> a3 = new HashMap<String, Luchador>();
 			a3.put("Classic silver and blue", luchadores[6]);//mistico
@@ -178,12 +178,29 @@ public class PageViewer {
 		questionList.add(q3);
 		questionList.add(q2);
 		questionList.add(q1);
-		
+	
 		QuestionPage questionPage = new QuestionPage(questionList, luchadores);
 		
 		questionPage.updatePage();
 		questionPage.frame.pack();
 		questionPage.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		questionPage.frame.setVisible(true);
+		while(true) {
+		if(!questionPage.frame.isVisible()) {
+			Luchador lucha = luchadores[0];
+			for(int i = 0; i< luchadores.length; i++) {
+				if(luchadores[i].getCount() > lucha.getCount()) {
+					lucha = luchadores[i];
+				}
+			}
+			LuchadorPage luchaPage = new LuchadorPage(lucha);
+			luchaPage.updatePage();
+			luchaPage.frame.pack();
+			luchaPage.frame.pack();
+			luchaPage.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			luchaPage.frame.setVisible(true);
+			break;
+		}
+		}
 	}
 }
